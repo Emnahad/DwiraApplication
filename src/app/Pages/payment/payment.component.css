@@ -1,0 +1,121 @@
+.arrow-container {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.back-arrow {
+    color: #D0A933;
+    cursor: pointer;
+}
+
+h1 {
+    padding-top: 20px;
+    font-family: 'Abhaya Libre ExtraBold';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 50px;
+    color: #000000;
+    padding-left: 28%;
+}
+
+.spec {
+    color: #D0A933;
+}
+
+.card {
+    border: 0;
+    background: #FFFFFF;
+    border: 0.5px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.card-img-top {
+    width: 380px;
+    height: 320px;
+    padding-left: 15px;
+    border-radius: 8%;
+    object-fit: cover;
+}
+
+.card-text1 {
+    text-align: justify;
+    max-width: 80%;
+
+}
+
+.card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.piece {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 70px;
+    margin-bottom: 10px;
+}
+
+.cta-section {
+    margin-top: 32px;
+    width: 1000px;
+}
+
+.cta-section div {
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 16px;
+    margin-bottom: 2px;
+    color: rgba(60, 60, 60, 0.71);
+}
+
+.cta-section h4 {
+    font-family: 'Abhaya Libre ExtraBold';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 41px;
+}
+
+
+.text-section {
+    margin-top: 20px;
+    max-width: 50%;
+}
+
+.card-text {
+    margin-bottom: 2px;
+}
+
+.card-text:last-child {
+    margin-bottom: 0;
+}
+
+.card-text,
+.piece {
+    font-size: 16px;
+}
+
+.card-button {
+    padding: 10px 0;
+    width: 80%;
+    background-color: #D0A933;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    margin-left: 75px;
+}
+
+.card-button:hover {
+    text-decoration: none;
+    background-color: #ebbc2d;
+    color: #fff;
+}

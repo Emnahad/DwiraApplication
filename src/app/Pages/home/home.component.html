@@ -1,0 +1,74 @@
+<app-header></app-header>
+
+<section id="home">
+    <div class="body" [ngStyle]="{'transition': 'background-image 0.5s ease-in-out'}"
+    [style.backgroundImage]="'linear-gradient(rgba(49, 49, 49, 0.6),rgba(49, 49, 49, 0.6)), url(' + guestHousesSlide[currentIndex].photoLink + ')'">
+    <div class="Home-Container">
+
+      <div class="search-box">
+        <input (input)="loadCity($event)" list="destinations" class="search-field destination" placeholder="City">
+        <datalist id="destinations">
+          <option *ngFor="let gh of guestHouses" [value]="gh.city">{{gh.city}}</option>
+        </datalist>
+        <input type="date" class="search-field arrive date" placeholder="">
+        <input type="date" class="search-field depart date" placeholder="">
+        <input (input)="loadNbVisitors($event)" type="number" class="search-field depart date" placeholder="# de voyageurs">
+        <button (click)="sendData()" class="search-btn"><span class="fa fa-search"></span></button>
+      </div>
+
+      <div class="box">
+        <h1>{{ guestHousesSlide[currentIndex].name }}</h1>
+        <h3><span class="fa fa-map-signs"></span> {{ guestHousesSlide[currentIndex].localization }}</h3>
+      </div>
+
+      <div class="timers offset-md-1">
+        <div class="timer" *ngFor="let house of guestHousesSlide; let i = index">
+          <h4 (click)="setCurrentIndex(i)" [ngClass]="{'clicked': currentIndex === i}">{{ house.name }}</h4>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+    <div class="text-center" >
+        <h1 class="title">Choisissez selon<span class="spec"> vos envies</span></h1>
+    </div>
+    
+    <div class="row cardenvies">
+        <div class="col-md-3" *ngFor="let loisir of loisirs">
+            <a [routerLink]="['/envies', loisir.nameL]" class="card-link">
+                <div class="card">
+                    <img [src]="loisir.imageUrl">
+                    <div class="card-content">
+                        <h5>{{ loisir.nameL }}</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section>
+  <div class="video-section" style="margin-bottom: -120px;">
+    <video class="video" autoplay="autoplay" [muted]="'muted'" loop>
+      <source src="../../../assets/vidTn.mp4">
+    </video>
+    <div class="content">
+      <h1 class="text-center" style="font-size: 45px; color: white;">Let's discover <span style="color:rgb(255, 31, 31); font-weight: bold;">Tunisia</span>, the beautiful country !</h1>
+      <button class="btn" (click)="goToCarte()">Discover</button>
+    </div>
+  </div>
+    
+    
+</section>
+
+<section id="contact">
+  <div class="text-center" >
+    <h1 class="title">Contact<span class="spec"> Us</span></h1>
+  </div>
+    <app-contact></app-contact>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" (click)="GoToHome()">
+            <img src="../../../assets/dwira_logo.png" alt="logo">
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" (click)="GoToHome()"> Home</a>
+                <a class="nav-link" (click)="GoToLog()"> Logement</a>
+                <a class="nav-link" (click)="IsLoggedIn()" routerLink="/carte">Carte</a>
+                <a class="nav-link" (click)="IsLoggedIn()" href="#contact">Contact</a>
+            </div>
+        </div>
+
+        <div class="Logout" *ngIf="!loggedIn">
+            <a class="nav-link" (click)="GoToLogin()">Login</a>
+        </div>
+            
+        <div class="Login" *ngIf="loggedIn">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>menu
+                </mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button *ngIf="loggedIn" mat-menu-item (click)="toggleMenu()">
+                    <span (click)="GoToProfile()">Profile</span>
+                </button>
+                <button mat-menu-item (click)="toggleMenu()">
+                    <span (click)="Logout()">Logout</span>
+                </button>
+            </mat-menu>
+            <div class="profile-image">
+                <img *ngIf="profilePhotoURL" src={{profilePhotoURL}} alt="'Profile Photo'" />
+                <img *ngIf="!profilePhotoURL && loggedIn" src="../../../assets/profile.png" alt="Default Profile Photo">
+            </div>
+        </div>
+    </div>
+</nav>

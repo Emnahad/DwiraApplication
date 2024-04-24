@@ -1,0 +1,289 @@
+*:not(span){
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.video{
+    margin-top: 80px;
+    margin-bottom: -20px;
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.8;
+    position: relative;
+}
+
+.btn {
+    background-color: rgb(199, 0, 0);
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    color: #FFFFFF;
+    font-size: 20px
+}
+
+.btn:hover {
+    background-color: rgb(255, 31, 31);
+    color: white;
+}
+
+.content{
+    z-index: 1;
+    transform: translateY(-280%);
+}
+
+.body {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    padding-top: 150px;
+    padding-bottom: 130px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;    
+}
+
+.body h1 {
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 60px;
+}
+
+.body h3 {
+    justify-content: center;
+    text-align: center;
+    margin-top: 70px;
+    color: white;
+    font-size: 35px;
+}
+
+.body h4 {
+    text-decoration: none;
+    color: #8e8e8e;
+    font-size: 22px;
+    font-weight: lighter;
+    padding-top: 50px;
+    cursor: pointer;
+    transition: color 0.5s ease-in-out;
+}
+
+.timer h4.clicked {
+    color: #ffffff;
+}
+
+.timer {
+    display: block;
+}
+
+.timers {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    width: 80%;
+    margin-top: 100px;
+}
+
+
+
+/*********SEARCH BAR************/
+
+.search-field {
+    width: 150px;
+    margin-right: 10px;
+    height: 30px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+}
+
+.search-btn {
+    width: 100px;
+    height: 30px;
+    background-color: #D0A933;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    color: #fff;
+}
+
+.search-btn:hover {
+    background-color: #f9c324;
+}
+
+.search-box {
+    background-color: #dedede;
+    opacity: 0.89;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 1px;
+    margin-bottom: 80px;
+    width: 52%;
+    border-radius: 15px;
+    margin-left: 360px;
+}
+
+datalist {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px;
+    height: 50px;
+    overflow-y: auto;
+  }
+
+
+@media only screen and (max-width: 600px) {
+    .first_col {
+        position: initial;
+        left: 0 !important;
+    }
+
+    .sec_col {
+        order: 1 !important;
+    }
+
+    .row-last {
+        left: 0 !important;
+        width: 100% !important;
+        height: 280px !important;
+        top: 0 !important;
+    }
+
+    .search-box {
+        margin-left: 115px;
+    }
+
+    .search-field {
+        margin-top: 10px;
+    }
+
+    .search-btn {
+        margin-top: 10px;
+    }
+
+    .navbar-brand img {
+        width: 65px;
+        height: 40px;
+        margin-left: 10px;
+        margin-top: 75px;
+    }
+
+    .body h1 {
+        font-size: 40px;
+    }
+
+    .body h3 {
+        margin-top: 70px;
+        font-size: 30px;
+    }
+
+    .body h4 {
+        font-size: 18px;
+
+    }
+
+    .timers {
+        margin-left: 35px;
+    }
+
+    .timer {
+        margin-right: 5px;
+    }
+
+    .bars {
+        margin-left: 10px;
+        font-size: 12px;
+        margin-right: -5px;
+    }
+
+    .Login {
+        margin-right: 30px;
+        width: 75px;
+    }
+
+    .card{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .body h4{
+        font-size: 16px;
+    }
+}
+
+
+
+/********************************ENVIES**************************/
+
+.title {
+    padding-top: 90px;
+    font-family: 'Abhaya Libre ExtraBold';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 69px;
+    color: #000000;
+}
+
+
+.card {
+    position: relative;
+    width: 302px;
+    height: 292px;
+    margin-left: 25px;
+    margin-top: 65px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.spec{
+    color:#D0A933;
+}
+
+.card img {
+    height: 100%;
+    width: 100%;
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+
+}
+
+.card-content h5 {
+    margin: 0;
+    font-size: 1rem;
+    padding-left: 55px;
+
+}
+
+.card:hover::before {
+    opacity: 0.5;
+}
+
+.card:hover .card-content {
+    background-color: rgba(198, 200, 79, 0.7);
+}
+
+.cardenvies{
+    padding-bottom: 50px;
+}

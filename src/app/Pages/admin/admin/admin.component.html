@@ -1,0 +1,117 @@
+<div class="container">
+    <div class="sidebar">
+        <ul>
+            <img src="../../../assets/logo_for_website.png" alt="logo">
+            <li><a (click)="showUsers()">Users</a></li>
+            <li><a (click)="showGuestHouses()">GuestHouses</a></li>
+            <li><a (click)="showLoisirs()">Loisirs</a></li>
+            <li><a class="logout">Logout</a></li>
+        </ul>
+    </div>
+
+
+    <div class="content">
+         <!-----------------------------------------WELCOME MESSAGE---------------------------------> 
+         <div *ngIf="welcome === true">
+            <h1>Welcome Admin !</h1>
+            <p>You are now the admin of <span style="font-weight: bold;">DWIRA</span> website, you have full access to all the application's users and guesthouses</p>
+         </div>
+
+         <!-----------------------------------------USERS---------------------------------> 
+         <table *ngIf="showUsersTable" mat-table [dataSource]="Users" class="mat-elevation-z8">
+    
+            <ng-container matColumnDef="firstName">
+                <th mat-header-cell *matHeaderCellDef>First Name</th>
+                <td mat-cell *matCellDef="let User">{{ User.firstName }}</td>
+            </ng-container>
+            <ng-container matColumnDef="lastName">
+                <th mat-header-cell *matHeaderCellDef>Last Name</th>
+                <td mat-cell *matCellDef="let User">{{ User.lastName }}</td>
+            </ng-container>
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let User">{{ User.email }}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsUsers"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsUsers;"></tr>
+        </table>
+       <!-----------------------------------------GUEST HOUSES---------------------------------> 
+
+        <table *ngIf="showGuestHouseTable" mat-table [dataSource]="guestHouses" class="mat-elevation-z8">
+    
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let guestHouse">{{ guestHouse.name }}</td>
+            </ng-container>
+            <ng-container matColumnDef="keywords">
+                <th mat-header-cell *matHeaderCellDef>keywords</th>
+                <td mat-cell *matCellDef="let guestHouse">{{ guestHouse.keywords }}</td>
+            </ng-container>
+            <ng-container matColumnDef="availableDates">
+                <th mat-header-cell *matHeaderCellDef>availableDates</th>
+                <td mat-cell *matCellDef="let guestHouse">{{ guestHouse.availableDates }}</td>
+            </ng-container>
+            <ng-container matColumnDef="city">
+                <th mat-header-cell *matHeaderCellDef>city</th>
+                <td mat-cell *matCellDef="let guestHouse">{{ guestHouse.city }}</td>
+            </ng-container>
+            <ng-container matColumnDef="location">
+                <th mat-header-cell *matHeaderCellDef>location</th>
+                <td mat-cell *matCellDef="let guestHouse">{{ guestHouse.location }}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef="pricePerday">
+                <th mat-header-cell *matHeaderCellDef>priceperday</th>
+                <td mat-cell *matCellDef="let guestHouse">{{ guestHouse.pricePerday }}</td>
+            </ng-container>
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef>Description</th>
+                <td mat-cell *matCellDef="let guestHouse">{{ guestHouse.description }}</td>
+            </ng-container>
+            <ng-container matColumnDef="dragDrop">
+                <th mat-header-cell *matHeaderCellDef>Drag & Drop</th>
+                <td mat-cell *matCellDef="let guestHouse">
+                    <ngx-dropzone (change)="onSelect(guestHouse, $event)">
+                        <ngx-dropzone-label>Drag and Drop files</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of guestHouseFiles[guestHouse.id]" [removable]="true" (removed)="onRemove(f)">
+                            <ngx-dropzone-label>
+                                {{ f.name }} {{ f.type }}
+                            </ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    
+ <!-----------------------------------------LOISIRS---------------------------------> 
+
+        <table *ngIf="showLoisirTable" mat-table [dataSource]="loisirs" class="mat-elevation-z8">
+            <ng-container matColumnDef="Name">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let loisir">{{ loisir.nameL }}</td>
+            </ng-container>
+        
+            <ng-container matColumnDef="Image">
+                <th mat-header-cell *matHeaderCellDef>Drag & Drop</th>
+                <td mat-cell *matCellDef="let loisir">
+                <ngx-dropzone (change)="onSelectLoisirFile(loisir,$event)">
+                    <ngx-dropzone-label>Drag and Drop files</ngx-dropzone-label>
+                    <ngx-dropzone-preview *ngIf="loisir.imageUrl" [removable]="true" (removed)="loisir.imageUrl = null">
+                        <ngx-dropzone-label>
+                            {{ loisir.imageUrl.name }}
+                            </ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="['Name', 'Image']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['Name', 'Image'];"></tr>
+        </table>
+    
+        <button *ngIf="welcome===false" (click)="uploadFiles()">Upload files</button>
+    </div>
+</div>

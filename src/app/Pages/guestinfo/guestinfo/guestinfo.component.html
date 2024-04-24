@@ -1,0 +1,83 @@
+<app-header></app-header>
+<div class="container">
+    <div class="arrow-container">
+         <i class='fas fa-arrow-circle-left back-arrow' style='font-size:22px; margin-right: 5px;' (click)="goBack()"></i>
+    </div>
+
+    <div class="row" *ngIf="guestHouse">
+        <div class="col-md-6">
+            <div class="card main-image">
+                <div class="image-container">
+                    <div class="image-wrapper col-md-6">
+                        <img [src]="guestHouse.imageUrls[0]" class="img-fluid houseimg" alt="Guest House Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <p>{{ guestHouse.description }}</p>
+        </div>
+    </div>
+
+    
+
+    <div class="row">
+        <div class="col-md-6 offset-md-2" *ngIf="guestHouse">
+            <div class="details">
+                <div class="detail">
+                    <h4><i class="fa fa-users"></i> {{guestHouse.nb_person}} Personnes</h4>
+                </div>
+                <div class="detail">
+                    <h4><i class="fa fa-home"></i> {{guestHouse.nb_room}} Chambres</h4>
+                </div>
+                <div class="detail">
+                    <h4><i class="fa fa-bed"></i> {{guestHouse.nb_bed}} Lits adultes</h4>
+                </div>
+                <div class="detail">
+                    <h4><i class="fa fa-child"></i> {{guestHouse.nb_bed_bayby}} Lits bébé</h4>
+                </div>
+                <div class="detail like" (click)="toggleLike()">
+                    <h4 [ngClass]="{'liked': liked}">
+                        <i class="fa fa-heart"> {{ guestHouse.ratingGlobal }} Like</i>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="guestHouse">
+        <div class="col-md-4" *ngFor="let imageUrl of guestHouse.imageUrls.slice(1)">
+            <div class="card otherphotos">
+                <img src="{{imageUrl}}">
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="text-center title">
+        <h2>Vérifier la disponibilité d'une date</h2>
+    </div>
+    <div class="row reservation" style="padding-bottom: 20px;">
+        <div class="col">
+    <mat-calendar [dateClass]="dateClass()"></mat-calendar>
+
+        </div>
+        <div class="col reservation-container" *ngIf="guestHouse">
+            <h2>{{ guestHouse.pricePerday }} DT/jour</h2> <!-- Use optional chaining here -->
+            <div class="reserve">
+                <div class="date">
+                    <input type="date" id="départ" [(ngModel)]="departureDate" class="search-field arrive date" placeholder="Date de départ">
+                    <input type="date" id="arrivée" [(ngModel)]="arrivalDate" class="search-field depart date" placeholder="Date d'arrivée">
+                </div>
+                <input type="number" id="nbvoy" [(ngModel)]="numberOfTravelers" class="search-field depart date" placeholder="# de voyageurs adultes">
+            </div>
+            <button class="btn" (click)="Reserver()">Réserver maintenant</button>
+            <hr>
+            <h2 class="total">Total: {{ calculateTotal() }} DT/jour</h2>
+        </div>
+        
+        
+    </div>
+
+</div>

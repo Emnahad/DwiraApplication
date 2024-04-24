@@ -1,0 +1,35 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="column">
+                    <h1>Welcome To</h1>
+                    <img class="dwira-logo" src="assets/dwira_logo.png">
+                </div>
+            </div>
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Complete Your Profile</h3>
+                        <p>We need a photo of you to finish your account creation</p>
+                    </div>
+                    <div class="panel-body">
+                        <ngx-dropzone class="drag offset-md-1" (change)="onSelect($event)">
+                            <ngx-dropzone-label>Drag and Drop Or Selet Photo</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngIf="profileImage" [removable]="true" (removed)="onRemove()">
+                                <ngx-dropzone-label>
+                                    {{profileImage.name}}
+                                </ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                        </ngx-dropzone>
+                        <button class="btn offset-md-3" (click)="OnUpload()">
+                            <i class="fa fa-camera"></i>  Upload Image To Profile
+                        </button>
+                        <div class="text-center pt-4 text-muted"><a id="forget" (click)="goToHome()">Add Photo Later</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

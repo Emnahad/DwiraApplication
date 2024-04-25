@@ -1,0 +1,151 @@
+*:not(span){
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.first_col {
+    background-color: white;
+    height: 550px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+    width: 550px;
+    left: 155px;
+    top: 160px;
+    border-radius: 20px;
+    padding-top: 30px;
+}
+
+.first_col h1{
+    font-size: 28px;
+    margin-bottom: -5px;
+}
+
+.img-fluid {
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.row-last {
+    width: 65% !important;
+    position: relative !important;
+    left: 380px;
+    bottom: 20px;
+    top: 80px;
+    height: 50px;
+    padding-bottom: 125px !important;
+    background-color: #D0A933;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    align-items: center;
+}
+
+.col-body {
+    margin-top: 15px;
+    align-items: center;
+}
+
+.col-body span {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.btn-primary {
+    background-color: #D0A933;
+    border: none;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #ebbc2d !important;
+}
+
+.px-2 img {
+    width: 20%;
+    margin-top: -10px;
+}
+
+.form-control {
+    height: 45px;
+    background: #fff;
+    font-size: 14px;
+    border-radius: 2px;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #000000;
+}
+
+.form-control[type=text]:focus {
+    border: 2px solid #555;
+}
+
+@media only screen and (max-width: 600px) {
+    .first_col {
+        position: initial;
+        left: 0 !important;
+    }
+
+    .sec_col {
+        order: 1 !important;
+    }
+
+    .row-last {
+        left: 0 !important;
+        width: 100% !important;
+        height: 280px !important;
+        top: 0 !important;
+    }
+
+    .search-box {
+        margin-left: 115px;
+    }
+
+    .search-field {
+        margin-top: 10px;
+    }
+
+    .search-btn {
+        margin-top: 10px;
+    }
+
+    .navbar-brand img {
+        width: 65px;
+        height: 40px;
+        margin-left: 10px;
+        margin-top: 75px;
+    }
+
+    .body h1 {
+        font-size: 40px;
+    }
+
+    .body h3 {
+        margin-top: 70px;
+        font-size: 30px;
+    }
+
+    .body h4 {
+        font-size: 18px;
+
+    }
+
+    .timers {
+        margin-left: 35px;
+    }
+
+    .timer {
+        margin-right: 5px;
+    }
+
+    .bars {
+        margin-left: 10px;
+        font-size: 12px;
+        margin-right: -5px;
+    }
+
+    .Login {
+        margin-right: 30px;
+        width: 75px;
+    }
+    
+
+
+}

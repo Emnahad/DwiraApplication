@@ -1,0 +1,70 @@
+<app-header></app-header>
+
+<div class="container">
+
+    <div  class="filter" style="display: flex;">
+        <div class="filter1 reset-btn">
+            <button (click)="resetFilters()" type="button" class="btn btn-light">Reset Filters</button>
+        </div>
+
+        <div class="filter1">
+            <button  class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                <i class="fa fa-map-marker"></i> City
+            </button>
+            <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                <div *ngFor="let city of allCities">
+                    <label>
+                      <input type="checkbox" [value]="city" (change)="updateSelectedCities($event, city)"> {{city}}
+                    </label>                    
+                  </div>
+            </ul>     
+        </div>
+
+        <div class="filter2">
+            <button class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+               <i class="fa fa-group"> </i> Number of visitors
+            </button>
+            <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                <div *ngFor="let nb of nbpersons; let i = index">
+                    <label>
+                      <input type="checkbox" value="{{nb}}" [checked]="selectedIndex === i" (click)="filterVisitors(nb, i)">{{nb}}
+                    </label>
+                  </div>
+            </ul>     
+        </div>
+
+        <div class="filter3">
+            <button class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                <i class="fas fa-tree"></i> Loisir
+            </button>
+            <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                <div *ngFor="let loisir of loisirs">
+                    <label>
+                      <input type="checkbox" [value]="loisir" (change)="updateSelectedLoisirs($event, loisir)"> {{loisir.nameL}}
+                    </label>
+                </div>
+            </ul>     
+        </div>
+   
+    </div>
+    
+
+
+    <div class="row" *ngIf="guestHouses">
+        <div class="row" *ngFor="let guestHouse of guestHouses">
+            <div class="card">
+                <img src="{{guestHouse.imageUrls[1]}}" alt="{{guestHouse.name}} image" class="card-img-top">
+                <div class="card-body">
+                    <div class="text-section">
+                        <h2 class="card-title">{{guestHouse.name}}</h2>
+                        <p class="card-text">{{guestHouse.city}}</p>
+                        <p class="card-text">Capacity of {{guestHouse.nb_person}} person</p>
+                    </div>
+                    <div class="cta-section">
+                        <div>{{guestHouse.pricePerday}}DT/Jour</div>
+                        <button (click)="navigateToGuestInfo(guestHouse.id)" class="card-button">View More</button>
+                    </div>
+                  </div>
+            </div>
+        </div>
+</div>

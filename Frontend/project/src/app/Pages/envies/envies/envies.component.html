@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="envie">
+<div class="row align-items-center">
+    <div class="row">
+        <div *ngFor="let loisir of loisirs" class="col bar">
+            <h2 (click)="filterGuestHouses(loisir)" [class.selected]="isLoisirSelected(loisir)">{{ loisir.nameL }}</h2>
+        </div>
+    </div>
+</div>
+
+
+    <div class="row">
+        <div class="col-md-3" *ngFor="let guestHouse of guestHouses; let cardIndex = index">
+            <div class="card">
+                <div class="image-container">
+                    <div class="image-wrapper" (click)="navigateToGuestInfo(guestHouse.id)">
+                        <img *ngIf="guestHouse && guestHouse.imageUrls[selectedIndexes[cardIndex]]"
+                            [src]="guestHouse.imageUrls[selectedIndexes[cardIndex]]"
+                            [alt]="'Slide ' + (selectedIndexes[cardIndex] + 1)">
+                    </div>
+
+                    <div class="pagination">
+                        <button *ngFor="let image of guestHouse?.imageUrls; let i = index"
+                            (click)="selectImage(i, cardIndex)"
+                            [class.active]="i === selectedIndexes[cardIndex]"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="text">
+                <h4>{{ guestHouse.name }}</h4>
+                <p>{{guestHouse.city}}</p>
+                <p>{{ guestHouse.keywords.join(', ') }}</p>
+                <p> <span class="price" style="margin-top: 15px;">{{ guestHouse.pricePerday }}DT/PerDay</span></p>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

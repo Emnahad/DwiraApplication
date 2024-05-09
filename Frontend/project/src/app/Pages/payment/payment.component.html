@@ -1,0 +1,69 @@
+<app-header></app-header>
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="arrow-container">
+        <i class='fas fa-arrow-circle-left back-arrow' style='font-size:22px; margin-right: 5px;'
+          (click)="goBack()"></i>
+        <h1>Finalisez <span class="spec">votre</span> réservation</h1>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="piece">
+            <ng-container *ngIf="guestHouse && guestHouse.imageUrls && guestHouse.imageUrls.length > 0">
+              <img [src]="guestHouse.imageUrls[0]" [alt]="guestHouse.name + ' image'" class="card-img-top">
+            </ng-container>
+
+            <div class="text-section">
+              <h2 class="card-title">{{ guestHouse?.name }}, <span style="color: #D0A933;">{{ guestHouse?.city }}</span>
+              </h2>
+
+              <p class="card-text1">{{ guestHouse?.description }}</p>
+              <i class="fa fa-heart" style="color: #D0A933;"> {{ guestHouse?.ratingGlobal }}</i>
+            </div>
+
+          </div>
+
+          <div class="cta-section">
+            <div>{{ this.formattedDate1 }} - {{ this.formattedDate2 }}</div>
+            <div class="row">
+              <div class="col-md-8">
+                <p class="card-text3">Durée de séjour:</p>
+              </div>
+              <div class="col-md-4">
+                <p>{{ calculatePeriod() }} Nuits</p>
+              </div>
+            </div>
+            <div class="visit">
+              <div class="row">
+                <div class="col-md-8">
+                  <p class="card-text3">Nombre de visiteurs:</p>
+                </div>
+                <div class="col-md-4">
+                  <p>{{ this.numberOfTravelers }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-8">
+                <h4 class="card-text2">Total à payer:</h4>
+              </div>
+              <div class="col-md-4">
+                <h4>{{ this.totalPrice }}DT</h4>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-3">
+        <div class="col-md-6">
+          <button (click)="pay(totalPrice || 0)" class="btn btn-primary btn-block card-button">Payer maintenant</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

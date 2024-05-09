@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./Frontend/project
+    ports:
+      - "80:80"
+    networks:
+      - my-network
+    restart: always
+    environment:
+      - BACKEND_URL=http://localhost:5295/swagger/index.html
+  backend:
+    build:
+      context: ./Backend/WebApplication3
+    ports:
+      - "5295:80"
+    restart: always
+    networks:
+      - my-network
+    
+networks:
+  my-network:
+    driver: bridge

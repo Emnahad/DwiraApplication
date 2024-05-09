@@ -1,0 +1,118 @@
+.container{
+    margin-top: 100px;
+}
+
+.filter{
+  width: 98%;
+  margin-bottom: 40px;
+  justify-content: flex-end;
+}
+
+.dropdown-menu {
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.reset-btn{
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: -10px;
+}
+
+.dropdown-menu label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.dropdown-menu input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.filter1, .filter2, .filter3{
+  margin-right: 30px;
+}
+
+li{
+  cursor: pointer;
+}
+
+i{
+  margin-right: 5px;
+}
+
+.arrow-container{
+    margin-top: 89.25px;
+    margin-bottom: 40px;
+}
+
+.back-arrow{
+    margin-top: 8px;
+    color: #D0A933;
+    margin-right: 100px;
+    cursor: pointer;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  gap: 20px; 
+}
+
+.card {
+  margin-left: 20px;
+    flex-direction: row;
+    max-width: 600px;
+    border: 0;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card img {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    padding: 0.5em;
+    border-radius: 0.7em;
+    object-fit: cover;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .text-section {
+    max-width: 60%;
+  }
+  .cta-section {
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+.card-button {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    width: 200%;
+    background-color: #D0A933;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+}
+
+.card-button:hover {
+    text-decoration: none;
+    background-color: #ebbc2d;
+    color: #fff;
+}

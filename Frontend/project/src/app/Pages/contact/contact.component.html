@@ -1,0 +1,53 @@
+<div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-md-6 first_col ">
+                <form class="p-4" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">FullName</label>
+                        <input type="text" class="form-control" id="name" formControlName="fullname">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" formControlName="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Email Subject</label>
+                        <input type="text" class="form-control" id="subject" formControlName="subject">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Your massage</label>
+                        <textarea type="text" class="form-control" id="message" formControlName="message" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" value="Send Message" class="btn btn-primary">Send Now</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-md-6 sec_col">
+                <img src="../../../assets/contact.jpg" class="img-fluid" alt="image houni">
+            </div>
+        </div>
+        <div class="row-last">
+            <div class="row row-cols-1 row-cols-md-3  p-3 text-white">
+                <div class="col">
+                    <h4>CALL US</h4>
+                    <div class="col-body">
+                        <p><span class="fa fa-phone"> </span> +216 55 885 207</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <h4>LOCALISATION</h4>
+                    <div class="col-body">
+                        <p><span class="fa fa-map-pin"> </span> ELGHAZELA TECHNOPARKS, Raoued, Ariana, Tunisia</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <h4>EMAIL US</h4>
+                    <div class="col-body">
+                        <p><span class="fa fa-envelope"></span>dwiraapplication&#64;gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

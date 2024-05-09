@@ -1,0 +1,80 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-7" >
+            <div class="alert alert-success" style="background-color: white; height: 200px;margin-top: 150px;font-size: large;" role="alert">
+                <div class="row align-items-center">
+                    <div class="col-md-1 text-center">
+                        <i class="fas fa-check-circle fa-5x" style="color: #D0A933;" ></i>
+                    </div>
+                    <div class="col-md-11">
+                        <h4 class="alert-heading" style="font-size: 28px;">Félicitation!</h4>
+                        <p>Votre réservation a été traitée avec succès.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title justify-content-center">Facture de la réservation</h5>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <ng-container *ngIf="guestHouse && guestHouse.imageUrls && guestHouse.imageUrls.length > 0">
+                                <img [src]="guestHouse.imageUrls[0]" [alt]="guestHouse.name + ' image'"
+                                    class="card-img-top">
+                            </ng-container>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 45px;">
+                            <p class="card-text">{{ guestHouse?.name || 'N/A' }}</p>
+                            <p class="mb-0">{{ formattedDate1 }} - {{ formattedDate2 }}</p>
+                            <i class="fa fa-heart" style="color: #D0A933;"> {{ guestHouse?.ratingGlobal }}</i>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text1">Email :</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text1">{{ userEmail ? userEmail : 'N/A' }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text1">Type de carte:</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text1">Visa</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text1">Numéro de la carte :</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text1">{{ userCardNumber ? userCardNumber : 'N/A' }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text1">Date d'éxipiration: </p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text1">{{ userExpiryDate ? userExpiryDate : 'N/A' }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text2">Prix total:</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text2">{{ totalPrice }} DT</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
